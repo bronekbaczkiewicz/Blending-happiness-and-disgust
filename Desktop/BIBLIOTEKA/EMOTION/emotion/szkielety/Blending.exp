@@ -1,0 +1,601 @@
+* prawdopodobieñstwa doœwiadczeniowe - wersja 0.3
+* 21.05.2014
+* Jakub Traczyk (jtraczyk@swps.edu.pl)
+
+********** PARAMETERS
+* odds = prawdopodobieñstwo wyst¹pienia eventu
+* trialduration = d³ugoœæ jednego triala
+* maxtrial = liczba triali jakie maj¹ siê wyœwietliæ
+
+* text numer wyœwietla numer triala w celach kontrolnych, mo¿na go usun¹æ w badaniu w³aœciwym
+
+
+
+<values >
+/ odds = 0
+/ trialduration = 30
+/ testtrialcounter = 0
+/ maxtrial = 100
+/ posttrialpause = 10
+/ miasto = 0
+</values>
+
+
+<page instrukcja>
+^WyobraŸ sobie, ¿e odwiedzisz siedem ró¿nych miast. W ka¿dym z nich bêdziesz spotykaæ ludzi w ró¿nych stanach emocjonalnych.
+^^Ludzie bêd¹ przedstawieni za pomoc¹ ciagu nastêpuj¹cych po sobie zdjêæ. 
+^^Twoim zadaniem jest uwa¿ne obserwowanie zdjêæ. W kolejnych etapach bêdziesz dokonywaæ szacowañ na podstawie prezentowanych zdjêæ.
+^^Postaraj siê udzielaæ odpowiedzi jak nakdok³adniej i jak naszybciej. Czas wykonania ka¿dego zadania jest mierzony.
+</page>
+
+<page twarze>
+^^W ostatniej czêœci badnia prosimy Ciê o ocenê fotografii wykorzystanych w tym eksperymencie.
+</page>
+
+<page miasto1>
+		Miasto 1
+
+^^^^^^Jeœli jesteœ gotów kliknij ROZPOCZNIJ, ¿eby rozpocz¹æ.
+
+</page>
+
+<page miasto2>
+		Miasto 2
+
+^^^^^^Jeœli jesteœ gotów kliknij ROZPOCZNIJ, ¿eby rozpocz¹æ.
+
+</page>
+
+<page miasto3>
+		Miasto 3
+
+^^^^^^Jeœli jesteœ gotów kliknij ROZPOCZNIJ, ¿eby rozpocz¹æ.
+
+</page>
+
+<page miasto4>
+		Miasto 4
+
+^^^^^^Jeœli jesteœ gotów kliknij ROZPOCZNIJ, ¿eby rozpocz¹æ.
+
+</page>
+
+<page miasto5>
+		Miasto 5
+
+^^^^^^Jeœli jesteœ gotów kliknij ROZPOCZNIJ, ¿eby rozpocz¹æ.
+
+</page>
+
+<page miasto6>
+		Miasto 6
+
+^^^^^^Jeœli jesteœ gotów kliknij ROZPOCZNIJ, ¿eby rozpocz¹æ.
+
+</page>
+
+<page miasto7>
+		Miasto 7
+
+^^^^^^Jeœli jesteœ gotów kliknij ROZPOCZNIJ, ¿eby rozpocz¹æ.
+
+</page>
+
+
+<instruct>
+/ fontstyle = ("Arial", 3%, false, false, false, false, 5, 238)
+/ inputdevice = mouse
+/ nextlabel = "dalej"
+/ prevlabel = "Cofnij"
+/ screencolor = grey
+/ finishlabel = "Rozpocznij"
+</instruct>
+
+
+<counter odds>
+/ select = noreplacenorepeat(1-100)
+/ selectionrate = trial
+</counter>
+
+<list nr_miasta>
+/ items = (1-9)
+</list>
+
+<list miasta>
+/ items = (list.n50_h50, list.n50_d50, list.h50_d50, list.h60_d40, list.d60_h40, list.h80_d20, list.d80_h20, list.h96_d04, list.d96_h04)
+</list>
+
+
+<text miasto_1>
+/ items = ("Miasto 1")
+/ position = (50,5)
+</text>
+
+
+<text miasto_2>
+/ items = ("Miasto 2")
+/ position = (50,5)
+</text>
+
+<text miasto_3>
+/ items = ("Miasto 3")
+/ position = (50,5)
+</text>
+
+<text miasto_4>
+/ items = ("Miasto 4")
+/ position = (50,5)
+</text>
+
+<text miasto_5>
+/ items = ("Miasto 5")
+/ position = (50,5)
+</text>
+
+<text miasto_6>
+/ items = ("Miasto 6")
+/ position = (50,5)
+</text>
+
+<text miasto_7>
+/ items = ("Miasto 7")
+/ position = (50,5)
+</text>
+
+
+<text numer>
+/ items = ("<% values.testtrialcounter %>")
+/ position = (30,30)
+</text>
+
+<text koniec>
+/ items = ("KONIEC")
+/ position = (50,50)
+</text>
+
+<text fix>
+/ items = ("+")
+/ txbgcolor = (grey)
+/ txcolor = (black)
+/ position = (50, 50)
+</text>
+
+
+<picture pic_n_m>
+/ items = ("neutral_m.jpg")
+/ size = (35%, 35%)
+/ hposition = noreplace(49.75, 50.25)
+/ vposition = noreplace(49.75, 50.25)
+</picture>
+
+<picture pic_n_f>
+/ items = ("neutral_f.jpg")
+/ size = (35%, 35%)
+/ hposition = noreplace(49.75, 50.25)
+/ vposition = noreplace(49.75, 50.25)
+</picture>
+
+<picture pic_h_m>
+/ items = ("happy_m.jpg")
+/ size = (35%, 35%)
+/ hposition = noreplace(49.75, 50.25)
+/ vposition = noreplace(49.75, 50.25)
+</picture>
+
+
+<picture pic_h_f>
+/ items = ("happy_f.jpg")
+/ size = (35%, 35%)
+/ hposition = noreplace(49.75, 50.25)
+/ vposition = noreplace(49.75, 50.25)
+</picture>
+
+<picture pic_d_m>
+/ items = ("disgust_m.jpg")
+/ size = (35%, 35%)
+/ hposition = noreplace(49.75, 50.25)
+/ vposition = noreplace(49.75, 50.25)
+</picture>
+
+
+<picture pic_d_f>
+/ items = ("disgust_f.jpg")
+/ size = (35%, 35%)
+/ hposition = noreplace(49.75, 50.25)
+/ vposition = noreplace(49.75, 50.25)
+</picture>
+
+#########################################LISTS#######################3
+<list n50_h50>
+/ itemprobabilities = (.25, .25, .25,.25)
+/ items = (trial.n_m, trial.n_f, trial.h_m, trial.h_f)
+/ poolsize = 100 
+
+
+</list>
+
+
+<list n50_d50>
+/ itemprobabilities = (.25, .25, .25,.25)
+/ items = (trial.n_m, trial.n_f, trial.h_m, trial.h_f)
+/ poolsize = 100 
+
+
+</list>
+
+<list h50_d50>
+/ itemprobabilities = (.25, .25, .25,.25)
+/ items = (trial.h_m, trial.h_f, trial.d_m, trial.d_f)
+/ poolsize = 100 
+
+
+</list>
+
+<list h60_d40>
+/ itemprobabilities = (.30, .30, .20,.20)
+/ items = (trial.h_m, trial.h_f, trial.d_m, trial.d_f)
+/ poolsize = 100 
+</list>
+
+<list d60_h40>
+/ itemprobabilities = (.30, .30, .20,.20)
+/ items = (trial.d_m, trial.d_f, trial.h_m, trial.h_f)
+/ poolsize = 100 
+</list>
+
+<list h80_d20>
+/ itemprobabilities = (.40, .40, .10,.10)
+/ items = (trial.h_m, trial.h_f, trial.d_m, trial.d_f)
+/ poolsize = 100 
+</list>
+
+<list d80_h20>
+/ itemprobabilities = (.40, .40, .10,.10)
+/ items = (trial.d_m, trial.d_f, trial.h_m, trial.h_f)
+/ poolsize = 100 
+</list>
+
+
+<list h96_d04>
+/ itemprobabilities = (.48, .48, .02,.02)
+/ items = (trial.h_m, trial.h_f, trial.d_m, trial.d_f)
+/ poolsize = 100 
+</list>
+
+<list d96_h04>
+/ itemprobabilities = (.48, .48, .02,.02)
+/ items = (trial.d_m, trial.d_f, trial.h_m, trial.h_f)
+/ poolsize = 100 
+</list>
+
+
+
+
+################################################TRI##############################################
+################################################ALS##############################################
+
+
+############################TRIALS##FACES########################################################
+
+<trial n_m>
+/ posttrialpause = values.posttrialpause
+/ stimulustimes = [1 = pic_n_m]
+/ validresponse = (anyresponse)
+/ trialduration = values.trialduration
+</trial>
+
+<trial n_f>
+/ posttrialpause = values.posttrialpause
+/ stimulustimes = [1 = pic_n_f]
+/ validresponse = (anyresponse)
+/ trialduration = values.trialduration
+</trial>
+
+
+<trial h_m>
+/ posttrialpause = values.posttrialpause
+/ stimulustimes = [1 = pic_h_m]
+/ validresponse = (anyresponse)
+/ trialduration = values.trialduration
+</trial>
+
+
+<trial h_f>
+/ posttrialpause = values.posttrialpause
+/ stimulustimes = [1 = pic_h_f]
+/ validresponse = (anyresponse)
+/ trialduration = values.trialduration
+</trial>
+
+<trial d_m>
+/ posttrialpause = values.posttrialpause
+/ stimulustimes = [1 = pic_d_m]
+/ validresponse = (anyresponse)
+/ trialduration = values.trialduration
+</trial>
+
+
+<trial d_f>
+/ posttrialpause = values.posttrialpause
+/ stimulustimes = [1 = pic_d_f]
+/ validresponse = (anyresponse)
+/ trialduration = values.trialduration
+</trial>
+
+
+<trial koniec>
+/ stimulustimes = [1=koniec]
+/ validresponse = (anyresponse)
+</trial>
+
+#################TRIALS##RESPONSE######################################################################
+
+<slider slider_P>
+/ caption = "U¿ywaj¹c suwaka, zaznacz jaka jest szansa na to, ¿e nastêpna napotkana osoba bêdzie radosna.
+
+"
+/ labels = ("0%", "100%")
+/ defaultresponse = "0"
+/ showticks = false
+/ showtooltips = false
+/ range = (0, 1000)
+/ fontstyle = ("Arial", 3%, false, false, false, false, 5, 238)
+/ position = (15, 40)
+/ slidersize = (70, 5)
+/ required = true
+/ increment = 0
+</slider>
+
+<slider slider_N>
+/ caption = "U¿ywaj¹c suwaka, zaznacz jaka jest szansa na to, ¿e nastêpna napotkana osoba bêdzie w neutralnym nastroju.
+
+"
+/ labels = ("0%", "100%")
+/ defaultresponse = "0"
+/ showticks = false
+/ showtooltips = false
+/ range = (0, 1000)
+/ fontstyle = ("Arial", 3%, false, false, false, false, 5, 238)
+/ position = (15, 40)
+/ slidersize = (70, 5)
+/ required = true
+/ increment = 0
+</slider>
+
+
+######## Przysz³oœæ jest przede mn¹? Jaka emocja jest przede mn¹?
+####Kontrola efektu SNARC, randomizowane, bo 
+
+
+<slider emocje>
+/ caption = "Zaznacz za pomoc¹ suwaka jak intensywne emocje wyra¿a osoba pokazana na obrazku.
+
+"
+/ labels = ("bardzo s³abe", "bardzo silne")
+/ defaultresponse = "50"
+/ showticks = false
+/ showtooltips = false
+/ range = (0, 100)
+/ fontstyle = ("Arial", 3%, false, false, false, false, 5, 238)
+/ position = (15, 50)
+/ slidersize = (70, 5)
+/ required = true
+/ increment = 0
+</slider>
+
+
+<slider miasto_em>
+/ caption = " Zaznacz za pomoc¹ suwaka jakie emocje przewa¿aj¹ w tym mieœcie.
+
+"
+/ labels = ("negatywne", "pozytywne")
+/ defaultresponse = "50"
+/ showticks = false
+/ showtooltips = false
+/ range = (0, 100)
+/ fontstyle = ("Arial", 3%, false, false, false, false, 5, 238)
+/ position = (10, 40)
+/ slidersize = (70, 5)
+/ required = true
+/ increment = 0
+</slider>
+
+<slider miasto_powr>
+/ caption = "Czy chcia³byœ pojechaæ do tego miasta?
+
+"
+/ labels = ("NIE", "TAK")
+/ defaultresponse = "50"
+/ showticks = false
+/ showtooltips = false
+/ range = (0, 100)
+/ fontstyle = ("Arial", 3%, false, false, false, false, 5, 238)
+/ position = (15, 40)
+/ slidersize = (70, 5)
+/ required = true
+/ increment = 0
+</slider>
+
+
+
+<surveypage sub_prob_h>
+/ questions = [1=slider_P]
+/ showpagenumbers = false
+/ showmousecursor = true
+/ showquestionnumbers = false
+/ finishlabel = "dalej"
+/ nextbuttonposition = (90, 90)
+</surveypage>
+
+<surveypage sub_prob_n>
+/ questions = [1=slider_N]
+/ showpagenumbers = false
+/ showmousecursor = true
+/ showquestionnumbers = false
+/ finishlabel = "dalej"
+/ nextbuttonposition = (90, 90)
+</surveypage>
+
+<surveypage miasto_em>
+/ questions = [1=miasto_em]
+/ showpagenumbers = false
+/ showmousecursor = true
+/ showquestionnumbers = false
+/ finishlabel = "dalej"
+/ nextbuttonposition = (90, 90)
+</surveypage>
+
+<surveypage miasto_powr>
+/ questions = [1=miasto_powr]
+/ showpagenumbers = false
+/ showmousecursor = true
+/ showquestionnumbers = false
+/ finishlabel = "dalej"
+/ nextbuttonposition = (90, 90)
+</surveypage>
+
+#########################TRIALS##OCENA#############################################################
+<picture ocen_n_m>
+/ items = ("neutral_m.jpg")
+/ size = (35%, 35%)
+/ position = (50%, 25%)
+</picture>
+
+<picture ocen_n_f>
+/ items = ("neutral_f.jpg")
+/ size = (35%, 35%)
+/ position = (50%, 25%)
+</picture>
+
+<picture ocen_h_m>
+/ items = ("happy_m.jpg")
+/ size = (35%, 35%)
+/ position = (50%, 25%)
+</picture>
+
+
+<picture ocen_h_f>
+/ items = ("happy_f.jpg")
+/ size = (35%, 35%)
+/ position = (50%, 25%)
+</picture>
+
+<picture ocen_d_m>
+/ items = ("disgust_m.jpg")
+/ size = (35%, 35%)
+/ position = (50%, 25%)
+</picture>
+
+
+<picture ocen_d_f>
+/ items = ("disgust_f.jpg")
+/ size = (35%, 35%)
+/ position = (50%, 25%)
+</picture>
+
+<surveypage emocje>
+/ stimulusframes = [1-4 = noreplacenorepeat(ocen_n_m, ocen_n_f, ocen_h_m, ocen_h_f, ocen_d_m, ocen_d_f )] 
+/ questions = [1=emocje]
+/ showpagenumbers = false
+/ showmousecursor = true
+/ showquestionnumbers = false
+/ finishlabel = "dalej"
+/ nextbuttonposition = (90, 90)
+</surveypage>
+
+
+<block subprob>
+/ trials = [1-2=noreplacenorepeat(sub_prob_h, sub_prob_n); 3-4=noreplacenorepeat(miasto_em, miasto_powr)]
+</block>
+
+<block ocena_emocji>
+/ preinstructions = (twarze)
+/ trials = [1 = emocje]
+</block>
+
+#######################################BLOCKS################################################
+
+<block m1>
+/ preinstructions = (miasto1)
+/ trials = [1-100 = list.n50_h50]
+/ stop = [block.m1.totaltrialcount == values.maxtrial]
+/ branch = [if(block.m1.totaltrialcount == values.maxtrial)block.subprob]
+</block>
+
+<block m2>
+/ preinstructions = (miasto2)
+/ trials = [1-100 = list.n50_d50]
+/ stop = [block.m2.totaltrialcount == values.maxtrial]
+/ branch = [if(block.m2.totaltrialcount == values.maxtrial)block.subprob]
+</block>
+
+<block m3>
+/ preinstructions = (miasto3)
+/ trials = [1-100 = list.h50_d50]
+/ stop = [block.m3.totaltrialcount == values.maxtrial]
+/ branch = [if(block.m3.totaltrialcount == values.maxtrial)block.subprob]
+</block>
+
+<block m4>
+/ preinstructions = (miasto4)
+/ trials = [1-100 = list.d60_h40]
+/ stop = [block.m4.totaltrialcount == values.maxtrial]
+/ branch = [if(block.m4.totaltrialcount == values.maxtrial)block.subprob]
+</block>
+
+<block m5>
+/ preinstructions = (miasto5)
+/ trials = [1-100 = list.d60_h40]
+/ stop = [block.m5.totaltrialcount == values.maxtrial]
+/ branch = [if(block.m5.totaltrialcount == values.maxtrial)block.subprob]
+</block>
+
+<block m6>
+/ preinstructions = (miasto6)
+/ trials = [1-100 = list.h80_d20]
+/ stop = [block.m6.totaltrialcount == values.maxtrial]
+/ branch = [if(block.m6.totaltrialcount == values.maxtrial)block.subprob]
+</block>
+
+<block m7>
+/ preinstructions = (miasto7)
+/ trials = [1-100 = list.d80_h20]
+/ stop = [block.m7.totaltrialcount == values.maxtrial]
+/ branch = [if(block.m7.totaltrialcount == values.maxtrial)block.subprob]
+</block>
+
+
+<block m8>
+/ preinstructions = (miasto6)
+/ trials = [1-100 = list.h96_d04]
+/ stop = [block.m6.totaltrialcount == values.maxtrial]
+/ branch = [if(block.m6.totaltrialcount == values.maxtrial)block.subprob]
+</block>
+
+<block m9>
+/ preinstructions = (miasto7)
+/ trials = [1-100 = list.d96_h04]
+/ stop = [block.m7.totaltrialcount == values.maxtrial]
+/ branch = [if(block.m7.totaltrialcount == values.maxtrial)block.subprob]
+</block>
+
+<block koniec>
+/ trials = [1=koniec]
+</block>
+
+<expt BLENDING>
+/ blocks = [1-7=noreplacenorepeat(m1, m2, m3, m4, m5, m6, m7, m8, m9); 8=ocena_emocji; 9=koniec]
+/ preinstructions = (instrukcja)
+</expt>
+
+<defaults>
+/ fontstyle = ("Verdana", 5.00%, false)
+/ screencolor = (grey)
+/ txbgcolor = (grey)
+</defaults>
+
+###########################DATA###################
+<data>
+/separatefiles = true
+/ columns =[subject, blockcode, trialcode, stimulusitem, stimulusitem, response]
+</data>
